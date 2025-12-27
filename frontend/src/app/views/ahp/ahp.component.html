@@ -202,7 +202,7 @@
             </tbody>
           </table>
   
-          <div class="tw-flex tw-justify-end tw-mt-4 tw-items-center" *ngIf="criteriaWithWeights?.length && criteriaWithWeights.length > 0">
+          <div class="tw-flex tw-justify-end tw-mt-4 tw-items-center" *ngIf="criteriaWithWeights.length && criteriaWithWeights.length > 0">
             <div class="tw-text-right tw-cursor-default">
               <p class="tw-mr-4 tw-font-bold " [ngStyle]="{'color': weightSum === 1 ? 'green' : 'red'}">
                 Sum of Weights: {{ weightSum | number:'1.2-2' }}
