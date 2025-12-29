@@ -10,6 +10,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { faCalculator, faFloppyDisk, faRotateRight, faSpinner, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 import { apiEndpoints } from '../../../environments/environment';
+import { BarChartComponent } from '../../components/charts/bar-chart/bar-chart.component';
 
 interface Criterion {
   name: string;
@@ -20,7 +21,7 @@ interface Criterion {
 @Component({
   selector: 'app-promethee',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, FormsModule, MatCheckboxModule, MatSelectModule, FontAwesomeModule, MatSlideToggleModule],
+  imports: [CommonModule, HttpClientModule, FormsModule, MatCheckboxModule, MatSelectModule, FontAwesomeModule, MatSlideToggleModule, BarChartComponent],
   templateUrl: './promethee.component.html',
   styleUrl: './promethee.component.css'
 })
@@ -32,7 +33,7 @@ export class PrometheeComponent {
   faTriangleExclamation = faTriangleExclamation;
   faFloppyDisk = faFloppyDisk; 
 
-  title = 'Promethee';
+  title = 'Preference Ranking Organization Method for Enrichment Evaluations (PROMETHEE)';
   prometheeData: any = {};
   selectedTopCount: number = 3; 
   showScores: boolean = false;
@@ -43,6 +44,7 @@ export class PrometheeComponent {
   weightOptions: number[] = Array.from({ length: 11 }, (_, i) => i / 10);
   isCalculating = false;
   message: string | null = null;
+  yFieldName: string = 'net_flow';
 
   constructor(
     @Inject(HttpClient) private http: HttpClient,
